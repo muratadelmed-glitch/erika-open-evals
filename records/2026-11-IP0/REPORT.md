@@ -21,7 +21,7 @@
 | Episodic only | 0.885 | 0.782 | 0.572 | 0.475 | 0.106 | 0.059 | 0.103 |
 | Slow learner only | 0.379 | 0.415 | 0.000 | 0.000 | 1.000 | 0.207 | 0.338 |
 
-**Paired baseline (taste and smell off):**
+**Paired baseline (taste and smell off; ERIKA's worst world on B4 here is 0.632, world 312016):**
 
 | Arm | B1 | B2 | B3 short | B3 long | B4 unseen | Forgetting (final) |
 |---|---|---|---|---|---|---|
@@ -33,8 +33,11 @@
 
 ## Reading and limits
 
+*Corrected 2026-11-23 after independent rescoring (numbers and PASS unchanged). The B1/B2 recall cue shows the object's shape with its colour masked (grey image), plus touch, sound and smell; only B3/B4 use a cue with no image. An earlier version of this report also claimed one-shot learning, which IP0 does not measure.*
+
 - **This is not the neural ERIKA.** It measures the current probabilistic learner. The neuron-and-synapse ERIKA is a separate line that is still being evolved.
-- **What the test measures.** The ceiling is 1.000, so the information is fully available. The test measures whether what was learned is kept and recalled: one-shot learning, then 3000 encounters with zero measured forgetting. Discrimination difficulty is not what it measures.
+- **What the test measures.** The ceiling is 1.000, so the information is fully available. The test measures whether learned colour associations are kept and recalled over 3000 encounters, with zero measured forgetting. Discrimination difficulty is not what it measures.
+- **What it does not measure.** It does not measure one-shot learning. In development worlds with the same settings, tested individuals were mostly seen many times (B1 group: median about 20 sightings, none seen only once; B2 group: median about 5, about 5% seen once).
 - **Body sharpness.** The sharp-body setting (k = 2) was chosen after inspecting already-seen development worlds. This is stated in the preregistration.
 - **Not covered.** Changing-world and scale conditions are not part of IP0.
 - **Forgetting checkpoints.** Forgetting is measured at 5 checkpoints only.

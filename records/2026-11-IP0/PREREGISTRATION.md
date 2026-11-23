@@ -22,7 +22,7 @@ The binding preregistration is the Turkish original, `PREREGISTRATION_tr.md`. Th
 
 - **B1:** short-term colour memory.
 - **B2:** long-term colour memory, for individuals that already left the world.
-- **Cue:** recall is from a colourless cue (touch, hearing, smell) at the end of the stream.
+- **Cue:** recall is at the end of the stream, from a cue that shows the object's shape with its colour masked (grey image), plus touch, sound and smell. (Corrected 2026-11-23: an earlier version of this summary said the cue had no image; the Turkish original never said that.)
 - **PASS:** the 20-world mean is ≥ 0.90 for both B1 and B2. Otherwise **FAIL**.
 - **INCONCLUSIVE:** any world missing, crashed or without B1/B2. No rerun.
 
