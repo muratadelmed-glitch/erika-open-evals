@@ -1,11 +1,16 @@
 # Records
 
-One folder per locked evaluation:
+One folder per locked evaluation. Each folder has the same files:
 
-- `PREREGISTRATION.md`: committed before the run; contains the worlds, settings, thresholds and analysis.
-- `raw/`: raw outputs of the run (with SHA-256).
-- `REPORT.md`: results against the pre-registered thresholds, met or not.
+| File | What | When written |
+|---|---|---|
+| `PREREGISTRATION_tr.md` | the binding preregistration: worlds, settings, thresholds, analysis | **before** the run, locked by commit |
+| `PREREGISTRATION.md` | English summary (the Turkish file governs if they differ) | after the run, copied unchanged |
+| `raw/` | raw outputs of every world, the run manifest and the decision report | by the run |
+| `REPORT.md` | results against the preregistered thresholds, met or not | after the run |
 
-Runs:
+## Runs
 
-- `2026-11-IP0/`: locked memory exam on 20 evaluation worlds (312001–312020). Result: PASS (B1 1.000, B2 1.000; threshold 0.90). The Turkish preregistration is the binding text.
+| Record | What | Result | Re-score it |
+|---|---|---|---|
+| [`2026-11-IP0/`](2026-11-IP0/) | locked colour-memory exam, 20 unseen evaluation worlds (312001–312020), 3000 encounters each | **PASS** (B1 1.000, B2 1.000; threshold 0.90) | `python3 tools/rescore_ip0.py` |
