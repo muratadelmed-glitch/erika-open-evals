@@ -14,6 +14,7 @@ the preregistrations, raw outputs and reports of locked runs. The learning syste
 | See the result | [`records/2026-11-IP0/REPORT.md`](records/2026-11-IP0/REPORT.md) |
 | Check that the rules were fixed before the run | [`records/2026-11-IP0/PREREGISTRATION.md`](records/2026-11-IP0/PREREGISTRATION.md) (binding Turkish original: `PREREGISTRATION_tr.md`) |
 | Re-score the result myself | `python3 tools/rescore_ip0.py` |
+| Test my own model on the same exam | [`data/ip0-dev/`](data/ip0-dev/) (sensory data) + `tools/score_ip0_dev.py` |
 | Know what each test measures | [`tests/SPEC.md`](tests/SPEC.md) |
 | Generate or inspect the worlds | [`world/`](world/) and `python3 -m world.verify` |
 | Read Turkish names in code or raw data | [`GLOSSARY.md`](GLOSSARY.md) |
@@ -62,6 +63,9 @@ records/                one folder per locked run
     REPORT.md               results and limits
     raw/ip0_raw.json.gz     raw outputs + run manifest + decision report
 tools/rescore_ip0.py    independent re-scoring of IP0 from raw outputs
+tools/score_ip0_dev.py  score your own model on data/ip0-dev/
+tools/example_baseline.py  minimal nearest-neighbour learner (data format example)
+data/ip0-dev/           sensory data (body outputs) for 10 development worlds, IP0 settings
 world/                  world generator (public copy) + reference hashes
   dunya.py                generator
   verify.py               reproduces the reference worlds

@@ -17,4 +17,4 @@ The statistical unit is the world: world mean, 95 % bootstrap interval over worl
 reported. Exact thresholds for a locked run live in its pre-registration under `records/`.
 
 Status: the reference implementation of these measurements runs inside the private repository because it needs the
-digital body to generate the cues. How cues will be shared for outside use (e.g. pre-computed cue sets) is open.
+digital body to generate the cues. For outside use, pre-computed sensory streams and cues for 10 development worlds are in `data/ip0-dev/`.
