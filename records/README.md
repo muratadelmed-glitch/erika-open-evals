@@ -6,4 +6,6 @@ One folder per locked evaluation:
 - `raw/`: raw outputs of the run (with SHA-256).
 - `REPORT.md`: results against the pre-registered thresholds, met or not.
 
-No locked evaluation has been run yet.
+Runs:
+
+- `2026-11-IP0/`: locked memory exam on 20 evaluation worlds (312001–312020). Result: PASS (B1 1.000, B2 1.000; threshold 0.90). The Turkish preregistration is the binding text.
