@@ -33,7 +33,7 @@
 
 ## Reading and limits
 
-*Corrected 2026-11-23 after independent rescoring (numbers and PASS unchanged). The B1/B2 recall cue shows the object's shape with its colour masked (grey image), plus touch, sound and smell; only B3/B4 use a cue with no image. An earlier version of this report also claimed one-shot learning, which IP0 does not measure.*
+*Corrected 2026-11-23 after re-scoring by a separate AI agent (numbers and PASS unchanged). The B1/B2 recall cue shows the object's shape with its colour masked (grey image), plus touch, sound and smell; only B3/B4 use a cue with no image. An earlier version of this report also claimed one-shot learning, which IP0 does not measure.*
 
 - **This is not the neural ERIKA.** It measures the current probabilistic learner. The neuron-and-synapse ERIKA is a separate line that is still being evolved.
 - **What the test measures.** The ceiling is 1.000, so the information is fully available. The test measures whether learned colour associations are kept and recalled over 3000 encounters, with zero measured forgetting. Discrimination difficulty is not what it measures.
@@ -42,4 +42,6 @@
 - **Not covered.** Changing-world and scale conditions are not part of IP0.
 - **Forgetting checkpoints.** Forgetting is measured at 5 checkpoints only.
 - **Statistics.** Single run; the world is the unit (n = 20).
-- **Independent rescoring:** pending.
+- **Re-scoring (status 2026-11-24):** re-scored from the raw archive by a separate AI agent (not the one that ran the
+  exam) and by `tools/rescore_ip0.py`, which anyone can run (`tools/verify_all.py`). No independent human or laboratory
+  has re-scored or rerun it yet. ERIKA's learning code is closed, so the run itself cannot be repeated outside the project.

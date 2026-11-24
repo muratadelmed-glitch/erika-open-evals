@@ -91,11 +91,13 @@ Four learning rules, each run with three network seeds:
 - **Lock commit:** `e435bf8`. It changes only the status line.
 - **Locked code:** the evaluation tool, the learners, the world and the Rust kernel of ERIKA 2 (SHA-256 `89762ce1…f8d8`).
   The tool refuses to run if any of these change after the lock.
-- **Before the lock:** an independent agent audit found 1 critical, 5 important and 5 minor issues. All were fixed
+- **Before the lock:** an independent AI-agent audit (a separate agent, not a human) found 1 critical, 5 important and 5 minor issues. All were fixed
   before locking. The critical one was a formatting error that would have made the tool refuse to run.
 - **Run:** the tool opens evaluation worlds only with a locked preregistration. A run record committed right after the
   run blocks any second locked run.
 - **Raw archive:** `raw/ip1_raw.json.gz`, SHA-256 `a967552c…0c87`; run manifest SHA-256 `059e2386…2f6b`.
+- **Not yet done:** an independent human or laboratory review. ERIKA's learning code is closed, so the run itself
+  cannot be repeated outside the project; the answers, the decision and the worlds can.
 
 ## Re-score it yourself
 

@@ -121,8 +121,8 @@ change. The learner never sees kinds or colour names, only raw sense values.
   never changed afterwards. Results are published whether they pass or fail.
 - **Separate data.** Development, tuning and evaluation worlds use disjoint seed ranges. Locked runs use worlds the
   learner has never seen.
-- **Independent checking.** A second reviewer re-scores each locked run from its raw output, and anyone can do the
-  same with `tools/`.
+- **Independent checking.** A second reviewer re-scores each locked run from its raw output (so far a separate AI
+  agent, not a human), and anyone can do the same with `tools/`. An independent human review has not been done yet.
 - **Honest labels.** Development results are never presented as evaluation results.
 
 ## Licence
