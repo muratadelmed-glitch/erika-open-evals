@@ -79,12 +79,17 @@ normalisation constants).
 |---|---|---|---|
 | ERIKA 1 | 0.780 | 13.5 | 847,215 |
 | Trained network + replay (3 training seeds) | 0.432 (0.428–0.435) | 14.5 | 352,788 |
+| Trained network + replay, 4× the steps (seed 0) | 0.480 | 60.4 | 352,788 |
+| Trained network + replay, wider (H = 3584, 1 step; matches ERIKA 1 in memory and CPU; seed 0) | 0.359 | 11.4 | 859,668 |
 | 5-NN | 0.607 | 0.5 | 150,098 |
 | 1-NN | 0.582 | 0.3 | 150,098 |
 | Neural ERIKA 2, hand rule, tuned | 0.538 | 5.5 | 1,896,765 |
 | Neural ERIKA 2, evolved rule (gen. 515) | 0.332 | 7.3 | 2,118,053 |
 
 - On 310800–310805, which were not used to choose its settings, the trained network scores 0.416.
+- Two extra settings, run once each for information after the choice: 4× the gradient steps (about 4.5× ERIKA 1's
+  CPU) reaches 0.480; a wider network matched to ERIKA 1 in both memory and CPU reaches 0.359. More compute helps
+  the trained network, but in these runs it stays below the store-everything references and ERIKA 1.
 - Its CPU was measured on a machine that was running other jobs at the same time, so it is somewhat high; at about
   ERIKA 1's CPU budget it is well below both ERIKA 1 and the store-everything references.
 - ERIKA 1 holds more numbers than any reference except ERIKA 2. This table is a budget report, not an efficiency claim.
