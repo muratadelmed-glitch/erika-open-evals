@@ -53,3 +53,22 @@ you will meet to English.
 | B2 long-term colour memory | `m10_uzun_ornek_dogruluk` |
 | B3 shape completion in the dark | `m4_sekil_kisa_tam`, `m4_sekil_uzun_tam` |
 | B4 shape of never-seen individuals | `m4_sekil_genel_tam` |
+
+## IP1 raw fields (`records/2026-11-IP1/raw/ip1_raw.json.gz`)
+
+| Field | Meaning |
+|---|---|
+| `erika1` | ERIKA 1 (same system as `erika_son_bol_tam_kar_ebk` in IP0) |
+| `hizli` / `yavas` | fast memory only / slow memory only |
+| `nn1` / `knn5` | 1-nearest / 5-nearest neighbour over every stored encounter |
+| `e2_<rule>_t<seed>` | neural ERIKA 2; rules `k515`, `k852` (evolved), `el` (hand-written), `el_uyum005` (hand-written, tuned) |
+| `gorulen` | objects seen in the stream (the ones asked) |
+| `cevap` | true colour index of each asked object |
+| `tahmin` | predicted colour index per cue set (`all`, `goz+dokunma`, …) |
+| `say`: `bilinen`, `tam`, `cift` | counts: known (all 7 right), right with all senses, right pair answers |
+| `cpu_s`, `durum_sayi` | CPU seconds for the life + exam; numbers held by the learner after the life |
+| `patladi` | ERIKA 2 weights diverged (false in every run) |
+| `kilit_commit`, `on_kayit` | lock commit, preregistration (path and SHA-256) |
+| `rust_so_sha256` | SHA-256 of ERIKA 2's compiled Rust kernel |
+| `dunya_oran`, `dunya_bilinen` | per-world known rate / known count |
+| `H1`, `H2a`… `kazanilan_dunya` | preregistered hypotheses; worlds where ERIKA 1 is strictly ahead |

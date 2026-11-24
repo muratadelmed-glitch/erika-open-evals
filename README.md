@@ -11,14 +11,33 @@ the preregistrations, raw outputs and reports of locked runs. The learning syste
 
 | I want to… | Go to |
 |---|---|
-| See the result | [`records/2026-11-IP0/REPORT.md`](records/2026-11-IP0/REPORT.md) |
+| See the results | [`records/2026-11-IP1/REPORT.md`](records/2026-11-IP1/REPORT.md) (hard world) and [`records/2026-11-IP0/REPORT.md`](records/2026-11-IP0/REPORT.md) |
+| Check everything with one command | `python3 tools/verify_all.py` (about 40 seconds; see [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md)) |
 | Check that the rules were fixed before the run | [`records/2026-11-IP0/PREREGISTRATION.md`](records/2026-11-IP0/PREREGISTRATION.md) (binding Turkish original: `PREREGISTRATION_tr.md`) |
-| Re-score the result myself | `python3 tools/rescore_ip0.py` |
+| Re-score the results myself | `python3 tools/rescore_ip1.py`, `python3 tools/rescore_ip0.py` |
 | Test my own model on the same exam | [`data/ip0-dev/`](data/ip0-dev/) (sensory data) + `tools/score_ip0_dev.py` |
-| Test my own model on the harder all-pairs measure | [`data/hard-dev/`](data/hard-dev/) + `tools/score_hard_dev.py` |
+| Test my own model on the harder all-pairs measure | [`data/hard-dev/`](data/hard-dev/) (20 worlds, with every reference's answers) + `tools/score_hard_dev.py` |
 | Know what each test measures | [`tests/SPEC.md`](tests/SPEC.md) |
 | Generate or inspect the worlds | [`world/`](world/) and `python3 -m world.verify` |
 | Read Turkish names in code or raw data | [`GLOSSARY.md`](GLOSSARY.md) |
+
+## Result at a glance: IP1, hard world (locked, 2026-11-24)
+
+ERIKA lived through 3000 encounters in each of 20 worlds it had never seen, with 180 look-alike objects. Every seen
+object was then asked for its colour 7 times: all senses together and each pair of senses, from a colourless cue.
+An object counts as known only if all 7 answers are right. Thresholds were committed before the run.
+
+| System | Known objects (20 worlds) | Ahead of ERIKA in |
+|---|---|---|
+| **ERIKA (current)** | **79.3%** (95% CI 78.3–80.4%) | — |
+| 5-nearest-neighbour over every stored encounter | 62.0% | 0 of 20 worlds |
+| 1-nearest-neighbour over every stored encounter | 59.8% | 0 of 20 worlds |
+| Slow memory only | 35.6% | 0 of 20 worlds |
+| Fast memory only | 23.5% | 0 of 20 worlds |
+
+**Decision: PASS** (all five preregistered hypotheses). The neural ERIKA 2, measured on the same worlds without a
+threshold, reaches 19–52% depending on its learning rule. ERIKA holds about 5.7× more numbers and uses about 45×
+more CPU than the nearest-neighbour references; the exam tests accuracy, not efficiency.
 
 ## Result at a glance: IP0 (locked, 2026-11-23)
 
@@ -58,16 +77,23 @@ README.md               this page
 GLOSSARY.md             Turkish names in code and raw data → English
 tests/SPEC.md           what each memory test (B1–B8) measures
 records/                one folder per locked run
+  2026-11-IP1/            hard-world exam: preregistration, report, raw outputs, sensory data of the 20 exam worlds
   2026-11-IP0/
     PREREGISTRATION_tr.md   binding preregistration (locked before the run)
     PREREGISTRATION.md      English summary
     REPORT.md               results and limits
     raw/ip0_raw.json.gz     raw outputs + run manifest + decision report
+tools/verify_all.py     runs every check below; exit 0 only if all pass (also run by CI on every push)
+tools/rescore_ip1.py    independent re-scoring of IP1 from raw outputs
+tools/verify_exam_worlds.py  the public generator reproduces the IP1 and hard-dev worlds
+tools/reference_hard.py 1-NN / 5-NN references recomputed from published features
 tools/rescore_ip0.py    independent re-scoring of IP0 from raw outputs
 tools/score_ip0_dev.py  score your own model on data/ip0-dev/
 tools/example_baseline.py  minimal nearest-neighbour learner (data format example)
 data/ip0-dev/           sensory data (body outputs) for 10 development worlds, IP0 settings
-data/hard-dev/          sensory data for 6 hard development worlds (180 objects), all-pairs measure
+data/hard-dev/          sensory data + features for 20 hard development worlds, all-pairs measure, every system's answers
+data/SHA256SUMS         checksums of every published data and raw-result file
+requirements.txt        pinned NumPy version used to produce every number here
 tools/score_hard_dev.py score your own model on data/hard-dev/
 world/                  world generator (public copy) + reference hashes
   dunya.py                generator

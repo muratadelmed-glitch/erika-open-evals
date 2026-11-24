@@ -1,6 +1,8 @@
 """Score your model on the hard development worlds in data/hard-dev/ with the all-pairs measure.
 
-Usage (repository root):  python3 tools/score_hard_dev.py predictions.json
+Usage (repository root):  python3 tools/score_hard_dev.py predictions.json [--data DIR]
+
+DIR defaults to data/hard-dev; use records/2026-11-IP1/data for the 20 IP1 exam worlds (now public).
 
 Each world has one cue per seen object (cue_goz is a colourless image; cue_dokunma, cue_kulak, cue_koku). Answer every
 object under 7 cue sets: "all" (all four senses) and each pair of senses (keys below). An object is KNOWN only if all 7
@@ -20,7 +22,10 @@ SENSES = ("goz", "dokunma", "kulak", "koku")
 CUE_SETS = ["all"] + [f"{a}+{b}" for a, b in itertools.combinations(SENSES, 2)]
 
 
-def main(path):
+def main(path, data=None):
+    global DATA
+    if data:
+        DATA = pathlib.Path(data).resolve()
     pred = json.loads(pathlib.Path(path).read_text())
     known_total = seen_total = 0
     for seed in sorted(pred, key=int):
@@ -39,4 +44,10 @@ def main(path):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    args = sys.argv[1:]
+    data = None
+    if "--data" in args:
+        i = args.index("--data")
+        data = args[i + 1]
+        del args[i:i + 2]
+    main(args[0], data)

@@ -14,3 +14,4 @@ One folder per locked evaluation. Each folder has the same files:
 | Record | What | Result | Re-score it |
 |---|---|---|---|
 | [`2026-11-IP0/`](2026-11-IP0/) | locked colour-memory exam, 20 unseen evaluation worlds (312001–312020), 3000 encounters each | **PASS** (B1 1.000, B2 1.000; threshold 0.90) | `python3 tools/rescore_ip0.py` |
+| [`2026-11-IP1/`](2026-11-IP1/) | locked hard-world exam, all-pairs measure, 20 unseen evaluation worlds (312021–312040), 180 objects | **PASS** (ERIKA 1 0.793; ahead of every reference in 20/20 worlds) | `python3 tools/rescore_ip1.py` |
