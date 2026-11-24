@@ -23,6 +23,7 @@ The same command runs in CI on every push (`.github/workflows/verify.yml`).
 | IP1 re-score | The IP1 decision follows from the raw answers and the preregistered rule, and the run was the locked one (preregistration hash, lock commit, kernel hash, every world's output hash) | `tools/rescore_ip1.py` |
 | Example baseline | A memory that stores everything scores 1.000 / 1.000 on IP0-style data (why IP0 alone is not enough) | `tools/example_baseline.py` + `tools/score_ip0_dev.py` |
 | Reference memories | The 1-NN and 5-NN references on the hard development worlds, recomputed from published features, match the internal run in every world | `tools/reference_hard.py --check` |
+| Trained reference (not in `verify_all`, about 15 minutes) | An online neural network with a replay buffer, settings chosen on 310806–310819 only, gives 0.432 on the 20 hard development worlds (training seeds 0–2) | `tools/reference_replay.py --H 1024 --S 4 --lr 0.003` |
 
 ## What you can do beyond checking
 

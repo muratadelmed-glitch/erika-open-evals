@@ -37,7 +37,9 @@ An object counts as known only if all 7 answers are right. Thresholds were commi
 
 **Decision: PASS** (all five preregistered hypotheses). The neural ERIKA 2, measured on the same worlds without a
 threshold, reaches 19–52% depending on its learning rule. ERIKA holds about 5.7× more numbers and uses about 45×
-more CPU than the nearest-neighbour references; the exam tests accuracy, not efficiency.
+more CPU than the nearest-neighbour references; the exam tests accuracy, not efficiency. A trained reference (an
+online neural network with a replay buffer, at about ERIKA's CPU budget) scores 43.2% on the 20 development worlds;
+see [`data/hard-dev/`](data/hard-dev/README.md#budgets-and-a-trained-reference).
 
 ## Result at a glance: IP0 (locked, 2026-11-23)
 
@@ -87,6 +89,7 @@ tools/verify_all.py     runs every check below; exit 0 only if all pass (also ru
 tools/rescore_ip1.py    independent re-scoring of IP1 from raw outputs
 tools/verify_exam_worlds.py  the public generator reproduces the IP1 and hard-dev worlds
 tools/reference_hard.py 1-NN / 5-NN references recomputed from published features
+tools/reference_replay.py trained reference: online neural network with a replay buffer (budget-reported)
 tools/rescore_ip0.py    independent re-scoring of IP0 from raw outputs
 tools/score_ip0_dev.py  score your own model on data/ip0-dev/
 tools/example_baseline.py  minimal nearest-neighbour learner (data format example)

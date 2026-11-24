@@ -63,4 +63,30 @@ All from the same internal run (`pilot/vucut/ip1.py`, DEV rehearsal, 24 November
 The two nearest-neighbour references can be recomputed from the published features alone:
 `python3 tools/reference_hard.py --check`. The result matches the internal run in every world.
 
+## Budgets, and a trained reference
+
+The references above store every encounter but learn nothing. `tools/reference_replay.py` adds a standard trained
+learner from the continual-learning literature: a small neural network (53 → 1024 → 12) that learns online, one
+encounter at a time, rehearsing a replay buffer that keeps every past encounter (4 gradient steps per encounter,
+minibatch 32, Adam). Its settings were chosen on worlds 310806–310819 only, from a grid of 8, by mean known rate over
+3 training seeds; `python3 tools/reference_replay.py --grid` repeats the choice.
+
+Per life, the same 20 worlds. CPU = process time on one core. Numbers = what the learner holds at the end of life
+(memory contents, weights, optimiser state; for the references, every stored encounter with its colour and the
+normalisation constants).
+
+| System | Known (world mean) | CPU s / life | Numbers held |
+|---|---|---|---|
+| ERIKA 1 | 0.780 | 13.5 | 847,215 |
+| Trained network + replay (3 training seeds) | 0.432 (0.428–0.435) | 14.5 | 352,788 |
+| 5-NN | 0.607 | 0.5 | 150,098 |
+| 1-NN | 0.582 | 0.3 | 150,098 |
+| Neural ERIKA 2, hand rule, tuned | 0.538 | 5.5 | 1,896,765 |
+| Neural ERIKA 2, evolved rule (gen. 515) | 0.332 | 7.3 | 2,118,053 |
+
+- On 310800–310805, which were not used to choose its settings, the trained network scores 0.416.
+- Its CPU was measured on a machine that was running other jobs at the same time, so it is somewhat high; at about
+  ERIKA 1's CPU budget it is well below both ERIKA 1 and the store-everything references.
+- ERIKA 1 holds more numbers than any reference except ERIKA 2. This table is a budget report, not an efficiency claim.
+
 The earlier 6-world release (310800–310805) is unchanged; its files are identical to the first six worlds here.
